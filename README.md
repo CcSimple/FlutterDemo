@@ -1,5 +1,5 @@
 ## Flutter 学习与记录
-#### 1. windows 环境搭建
+#### 1. windows 下 Flutter环境搭建
 **前提**
 - 操作系统: Windows 7 或更高 (64-bit)
 - 磁盘空间: 400 MB (不包括Android Studio的磁盘空间).
