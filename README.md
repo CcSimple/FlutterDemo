@@ -1,6 +1,6 @@
 ## Flutter 学习与记录
 
-     Flutter中文网教程: [https://flutterchina.club/get-started/install/][0]
+Flutter中文网教程: [https://flutterchina.club/get-started/install/][0]
 
 #### 1. windows 下 Flutter环境搭建
 **前提**
