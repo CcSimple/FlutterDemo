@@ -49,6 +49,57 @@ d. 在命令行中执行 `flutter doctor` 查看是否需要安装任何依赖�
 
 ![avatar](images/4.png)
 
+    执行 `flutter doctor` 可能会出现以下几种情况:
+
+- 1. 缺少一些工具资源, 这里等待下载安装即可如下图:
+
+![avatar](images/5.jpg)
+
+![avatar](images/6.jpg)
+
+![avatar](images/7.jpg)
+
+![avatar](images/8.jpg)
+
+        安装完成后,会出现如上图所示, 可用(√),警告(!),不可用(×)的三种情况的 4条或5条类目  
+		其中: 1.Flutter版本环境信息; 2.Android SDK信息;
+		3,4为本地支持的开发工具(如有警告 说明工具没有集成Flutter,Dart插件);5.可连接调试的设备
+
+- 2. **如果你不想看到 Android SDK 的警告**, 执行 `flutter doctor --android-licenses` 接受协议即可
+
+
+如下图,我这里6个协议有5个协议没有接受 如下图, 选择Y/N 接受协议 一直接受即可
+
+![avatar](images/8-1.jpg)
+
+e. **Android Studio 或者 IDEA 没有安装集成 Flutter 和 Dart 插件** 这里以Android Studio为例
+	
+Android Studio 中 Ctrl + alt + S 打开 `设置` 找到 `Plugins` 选项卡 选择 `Browse repositories..` 然后 在搜索框中 输入 `Flutter` 在右方点击安装, 会提示是否和Dart插件一起安装 确认即可  **安装完成后重启** 即可看到 `Start a new Flutter Project` 选项 流程如下图:
+
+![avatar](images/9.jpg)
+
+![avatar](images/10.jpg)
+
+![avatar](images/11.jpg)
+
+![avatar](images/12.jpg)
+
+	此时我们在命令行再次执行 `flutter doctor` 会发现 原来的Android Studio 下的两个不可用 已经没有了, 如下图
+
+![avatar](images/13.jpg)
+
+f. **Android Studio 创建 第一个 Flutter 项目**
+
+选择 `Start a new Flutter Project` 在 对话框中 选择 `Flutter Application` 然后 next , 然后在新对话框中输入项目名称,指定 Flutter的 安装目录,指定项目保存的地址,项目描述 ,然后 next , 再新窗口中填入包名信息 **如遇到无法成功创建, 关闭Android Studio, 删除项目目录的.idea文件夹, 重启并打开此项目即可** 流程如下图: 
+
+![avatar](images/14.jpg)
+
+![avatar](images/15.jpg)
+
+![avatar](images/16.jpg)
+
+![avatar](images/17.jpg)
+
 [0]: https://flutterchina.club/get-started/install/
 [1]: https://git-scm.com/download/win
 [2]: https://blog.csdn.net/u013295518/article/details/78746007
