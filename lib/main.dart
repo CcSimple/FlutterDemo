@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:FlutterDemo/pages/home.dart';
 import 'package:FlutterDemo/pages/frame/frame1.dart';
 import 'package:FlutterDemo/pages/frame/frame2.dart';
+import 'package:FlutterDemo/pages/frame/frame3.dart';
 import 'package:FlutterDemo/pages/frame/pages/index.dart';
 import 'package:FlutterDemo/pages/frame/pages/order.dart';
 import 'package:FlutterDemo/pages/frame/pages/mine.dart';
@@ -19,11 +20,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: <String, WidgetBuilder> {
+        '/frame1': (BuildContext context) => new Frame1Page(),
+        '/frame2': (BuildContext context) => new Frame2Page(),
+        '/frame3': (BuildContext context) => new Frame3Page(),
         '/index': (BuildContext context) => new IndexPage(),
         '/order': (BuildContext context) => new OrderPage(),
         '/mine': (BuildContext context) => new MinePage(),
-        '/frame1': (BuildContext context) => new Frame1Page(),
-        '/frame2': (BuildContext context) => new Frame2Page(),
       },
       home: new HomePage(title: 'Flutter 学习记录')
     );
