@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
+
   // 应用的主页
   // final 标示 , 在构建方法中使用
   final String title;
@@ -11,13 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  void _frame1() {
-    Navigator.pushNamed(context, '/frame1');
-  }
-  void _frame2() {
-    Navigator.pushNamed(context, '/frame2');
-  }
   @override
   Widget build(BuildContext context) {
     // 每次调用setState 都会运行
@@ -36,38 +30,59 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           // Column布局 的子布局 数组
           children: <Widget>[
-            new RaisedButton(
-                child: new Text(
-                  'BottomNavigationBar',
-                ),
-                // 默认颜色
-                color: Colors.blue,
-                // 按下时的颜色
-                highlightColor: Colors.blueAccent,
-                // 不可用时颜色
+            new Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: new RaisedButton(
+                    child: new Text(
+                      'BottomNavigationBar',
+                    ),
+                    // 默认颜色
+                    color: Colors.blue,
+                    // 按下时的颜色
+                    highlightColor: Colors.blueAccent,
+                    // 不可用时颜色
 //                disabledColor: Colors.grey,
-                // 正常情况文本颜色
-                textColor: Colors.white,
-                // 不可用时文本颜色
+                    // 正常情况文本颜色
+                    textColor: Colors.white,
+                    // 不可用时文本颜色
 //              disabledTextColor: Colors.black54,
-                onPressed: _frame1
-            ),new RaisedButton(
-                child: new Text(
-                  'Drawer',
-                ),
-                // 默认颜色
-                color: Colors.blue,
-                // 按下时的颜色
-                highlightColor: Colors.blueAccent,
-                // 正常情况文本颜色
-                textColor: Colors.white,
-                onPressed: _frame2
-            ),
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/frame1');
+                    })),
+            new Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: new RaisedButton(
+                    child: new Text(
+                      'Drawer',
+                    ),
+                    // 默认颜色
+                    color: Colors.blue,
+                    // 按下时的颜色
+                    highlightColor: Colors.blueAccent,
+                    // 正常情况文本颜色
+                    textColor: Colors.white,
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/frame2');
+                    })),
+            new Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: new RaisedButton(
+                    child: new Text(
+                      'TabBarView',
+                    ),
+                    // 默认颜色
+                    color: Colors.blue,
+                    // 按下时的颜色
+                    highlightColor: Colors.blueAccent,
+                    // 正常情况文本颜色
+                    textColor: Colors.white,
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/frame3');
+                    })),
           ],
         ),
       ),
       backgroundColor: Colors.white,
     );
   }
-
 }
