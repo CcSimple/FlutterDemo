@@ -2,8 +2,8 @@
 
 Flutter中文网教程: [https://flutterchina.club/get-started/install/][0]
 
-## [windows环境搭建教程][0]
+## [windows环境搭建教程][1]
 
 
-
-[0]: https://github.com/CcSimple/FlutterDemo/blob/master/README-BUILD.md
+[0]: https://flutterchina.club/get-started/install/
+[1]: https://github.com/CcSimple/FlutterDemo/blob/master/README-BUILD.md
