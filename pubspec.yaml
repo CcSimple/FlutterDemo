@@ -8,6 +8,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   # 包含数千个最常用的英文单词以及一些实用功能。
   english_words: ^3.1.0
+  # -----------------------------------------
+  # 网络请求库
+  dio: 1.0.0
+  # Loading 加载动画
+  flutter_spinkit: ^2.0.0
 
 dev_dependencies:
   flutter_test:
