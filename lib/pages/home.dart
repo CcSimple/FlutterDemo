@@ -79,6 +79,21 @@ class _HomePageState extends State<HomePage> {
                     onPressed: (){
                       Navigator.pushNamed(context, '/frame3');
                     })),
+            new Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: new RaisedButton(
+                    child: new Text(
+                      '网络 dio & json & async',
+                    ),
+                    // 默认颜色
+                    color: Colors.blue,
+                    // 按下时的颜色
+                    highlightColor: Colors.blueAccent,
+                    // 正常情况文本颜色
+                    textColor: Colors.white,
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/net');
+                    })),
           ],
         ),
       ),
