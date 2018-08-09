@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'pages/fullload.dart';
 
 class NetPage extends StatefulWidget {
   @override
@@ -98,13 +99,17 @@ class _NetPageState extends State<NetPage> {
                         }),
                     new RaisedButton(
                         child: new Text(
-                          '默认请求4',
+                          '全屏加载框',
                         ),
                         color: Colors.blue,
                         highlightColor: Colors.blueAccent,
                         textColor: Colors.white,
                         onPressed: () {
-                          _loadTest('默认请求4');
+                          // 不使用全局路由名称的跳转
+                          Navigator.push(
+                              context,
+                              new MaterialPageRoute(
+                                  builder: (context) => new FullLoadPage()));
                         }),
                     new RaisedButton(
                         child: new Text(
