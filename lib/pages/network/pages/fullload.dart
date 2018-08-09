@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -9,9 +11,20 @@ class FullLoadPage extends StatefulWidget {
 class _FullLoadPageState extends State<FullLoadPage> {
   bool loading = false;
 
-  loadTest() {
+  loadStart() {
     setState(() {
       loading = true;
+    });
+    countDown();
+  }
+  // 倒计时
+  countDown() {
+    var _duration = new Duration(seconds: 3);
+    new Future.delayed(_duration,loadEnd);
+  }
+  loadEnd() {
+    setState(() {
+      loading = false;
     });
   }
 
@@ -35,7 +48,7 @@ class _FullLoadPageState extends State<FullLoadPage> {
                     highlightColor: Colors.blueAccent,
                     textColor: Colors.white,
                     onPressed: () {
-                      loadTest();
+                      loadStart();
                     }),
               ],
             ),
@@ -56,9 +69,19 @@ class _FullLoadPageState extends State<FullLoadPage> {
                       color: Colors.white,
                       size: 30.0,
                     )),
-                new Text('加载中...',style: new TextStyle(
-                  color: Colors.white,
-                ),)
+                // 套一层 修改样式问题.....
+                new FlatButton(
+                    onPressed: (){},
+                    child: new Text('加载中...',
+                      style: new TextStyle(color: Colors.white),)
+                )
+                // 因为没有在  Scaffold 中, 字体样式 不一样
+//                new Text('加载中...',
+//                  style: new TextStyle(
+//                    color: Colors.white,
+//                    fontStyle: FontStyle.normal,
+//                    fontSize:  14.0,
+//                ),)
               ],
             ),
           ),
