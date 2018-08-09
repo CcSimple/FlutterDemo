@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         // 应用的主题
         primarySwatch: Colors.blue,
       ),
+      // 全局 路由名称及对应页面
       routes: <String, WidgetBuilder> {
         '/frame1': (BuildContext context) => new Frame1Page(),
         '/frame2': (BuildContext context) => new Frame2Page(),
