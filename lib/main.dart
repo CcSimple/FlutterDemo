@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:FlutterDemo/pages/home.dart';
+import 'package:FlutterDemo/pages/splash.dart';
 import 'package:FlutterDemo/pages/frame/frame1.dart';
 import 'package:FlutterDemo/pages/frame/frame2.dart';
 import 'package:FlutterDemo/pages/frame/frame3.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         '/order': (BuildContext context) => new OrderPage(),
         '/mine': (BuildContext context) => new MinePage(),
       },
-      home: new HomePage(title: 'Flutter 学习记录')
+//      home: new HomePage(title: 'Flutter 学习记录')
+      home: new SplashPage()
     );
   }
 }
