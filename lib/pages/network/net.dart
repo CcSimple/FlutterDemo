@@ -13,7 +13,7 @@ class NetPage extends StatefulWidget {
 }
 
 class _NetPageState extends State<NetPage> {
-  var _type = '结果: ';
+  var _type = '';
   var _result = '';
   bool loading = false;
 
@@ -35,18 +35,18 @@ class _NetPageState extends State<NetPage> {
         print(response.toString());
         print('------------------------------');
         loading = false;
-        _type = '请求1-结果: ';
+        _type = '请求1-结果 ';
         _result = response.data['data'].toString();
       } else {
         loading = false;
-        _type = '请求1-失败: ';
+        _type = '请求1-失败 ';
         _result = response.toString();
       }
       print('------------ _loadHotKey end ------------------');
     } catch (e) {
       print(e);
       loading = false;
-      _type = '请求1-catch: ';
+      _type = '请求1-catch ';
       _result = e.toString();
     }
     _list = <HotKey>[];
@@ -73,7 +73,7 @@ class _NetPageState extends State<NetPage> {
         print(list.length);
         print(list[0].toJson());
         loading = false;
-        _type = 'json解析: ';
+        _type = 'json解析 ';
         _result = hotkeys.toString();
         _list = list;
       } else {
@@ -83,7 +83,7 @@ class _NetPageState extends State<NetPage> {
     } catch (e) {
       print(e);
       loading = false;
-      _type = 'json解析-catch:';
+      _type = 'json解析-catch';
       _result = e.toString();
     }
     setState(() {});
@@ -119,21 +119,20 @@ class _NetPageState extends State<NetPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          // 获取 HomePage 的 final title, 并设置到AppBar 上
-          title: new Text('Dio网络库 & JSON & async'),
-        ),
-        body: new Stack(
-          // 子布局约束 loose: 可扩充的; expand: 最大化; passthrough: 水平包裹,垂直可扩充
-          fit: StackFit.expand,
-          // 超出部分是否可见
-          // overflow: Overflow.visible,
-          children: <Widget>[
-            new Column(children: <Widget>[
+    return new Stack(
+        // 子布局约束 loose: 可扩充的; expand: 最大化; passthrough: 水平包裹,垂直可扩充
+//        fit: StackFit.expand,
+        children: <Widget>[
+          new Scaffold(
+            appBar: new AppBar(
+              // 获取 HomePage 的 final title, 并设置到AppBar 上
+              title: new Text('Dio网络库 & JSON & async'),
+            ),
+            body: new Column(
+                children: <Widget>[
               // 换行的布局
               new Padding(
-                padding: const EdgeInsets.only(top: 10.0),
+                padding: const EdgeInsets.only(left: 14.0, right: 14.0,top: 10.0),
                 child: new Wrap(
                   spacing: 8.0, // 左右间距
                   runSpacing: 4.0, // 上下间距
@@ -154,15 +153,6 @@ class _NetPageState extends State<NetPage> {
                         onPressed: () {
                           _loadTest('json解析');
                           _loadHotKeyAndJson();
-                        }),
-                    new RaisedButton(
-                        child: new Text(
-                          '默认请求3',
-                        ),
-                        color: Colors.blue,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _loadTest('默认请求3');
                         }),
                     new RaisedButton(
                         child: new Text(
@@ -193,18 +183,10 @@ class _NetPageState extends State<NetPage> {
                               bgcolor: "#1296db",
                               textcolor: '#ffffff');
                         }),
-                    new RaisedButton(
-                        child: new Text(
-                          '默认请求6',
-                        ),
-                        color: Colors.blue,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          _loadTest('默认请求6');
-                        }),
                   ],
                 ),
               ),
+              // 请求的文本信息
               new Padding(
                   padding:
                       const EdgeInsets.only(left: 14.0, right: 14.0, top: 20.0),
@@ -220,6 +202,7 @@ class _NetPageState extends State<NetPage> {
                             style: new TextStyle(
                                 fontSize: 16.0, color: Colors.blue))
                       ]))),
+              // 解析的数据 Wrap 展示
               new Padding(
                 padding:
                     const EdgeInsets.only(left: 14.0, right: 14.0, top: 20.0),
@@ -238,32 +221,32 @@ class _NetPageState extends State<NetPage> {
                     }).toList()),
               ),
             ]),
-            loading
-                ? new Container(
-                    color: Colors.black54,
-                    child: new Center(
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          new Padding(
-                              padding: EdgeInsets.only(bottom: 10.0),
-                              child: new SpinKitThreeBounce(
-                                color: Colors.white,
-                                size: 30.0,
-                              )),
-                          new Text(
-                            '加载中...',
-                            style: new TextStyle(
+          ),
+          loading
+              ? new Container(
+                  color: Colors.black54,
+                  child: new Center(
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        new Padding(
+                            padding: EdgeInsets.only(bottom: 10.0),
+                            child: new SpinKitThreeBounce(
                               color: Colors.white,
-                            ),
-                          )
-                        ],
-                      ),
+                              size: 30.0,
+                            )),
+                        // 套一层 修改样式问题.....
+                        new FlatButton(
+                            onPressed: (){},
+                            child: new Text('加载中...',
+                              style: new TextStyle(color: Colors.white),)
+                        )
+                      ],
                     ),
-                  )
-                : new Container()
-          ],
-        ));
+                  ),
+                )
+              : new Container()
+        ]);
   }
 }
